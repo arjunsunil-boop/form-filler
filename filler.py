@@ -3,17 +3,19 @@ import time
 import random
 import json
 from google import genai
+from dotenv import load_dotenv
+import os
 
 # ================= CONFIG =================
-
+load_dotenv()
 # Google Form POST URL (from your form HTML)
-FORM_URL = "googleforms/formResponse"
-
+FORM_URL = os.getenv("FORM-LINK")
+API = os.getenv("API_KEY")
 # Gemini client
-client = genai.Client(api_key="api here")
+client = genai.Client(api_key=API)
 
 # How many responses you want
-NUM_RESPONSES = 7
+NUM_RESPONSES = 1
 
 # Entry IDs for your form
 ENTRY = {
